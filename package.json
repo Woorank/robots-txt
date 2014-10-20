@@ -1,0 +1,26 @@
+{
+  "name": "robots-txt",
+  "version": "0.0.1",
+  "description": "Check user agents against robots.txt files",
+  "main": "lib/robots.js",
+  "scripts": {
+    "test": "mocha -R spec ./test",
+    "test-watch": "mocha -w -R spec ./test"
+  },
+  "author": "Jan Potoms",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "level": "^0.18.0",
+    "mocha": "^1.18.2",
+    "nock": "^0.48.0"
+  },
+  "dependencies": {
+    "bluebird": "^2.3.5",
+    "level-ttl": "^2.1.0",
+    "request": "^2.45.0",
+    "robots-txt-guard": "0.0.1",
+    "robots-txt-parse": "0.0.2",
+    "through": "^2.3.6"
+  }
+}
