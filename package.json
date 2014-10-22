@@ -1,6 +1,6 @@
 {
   "name": "robots-txt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Check user agents against robots.txt files",
   "main": "lib/robots.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "bluebird": "^2.3.5",
+    "extend": "^2.0.0",
     "level-ttl": "^2.1.0",
     "request": "^2.45.0",
     "robots-txt-guard": "0.0.1",
