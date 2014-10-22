@@ -1,6 +1,6 @@
 {
   "name": "robots-txt",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Check user agents against robots.txt files",
   "main": "lib/robots.js",
   "scripts": {
