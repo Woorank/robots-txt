@@ -96,30 +96,7 @@ describe('parser', function () {
 
   });
   
-  it('should allow all when no robots.txt', function (done) {
-    var scope = nock('http://www.example.com')
-      .get('/robots.txt')
-      .replyWithFile(404, __dirname + '/fixtures/robots1.txt');
-
-    var bot = robots();
-
-    Promise.join(
-      bot.isAllowed('woobot/1.0', 'http://www.example.com/allowed'),
-      bot.isAllowed('woobot/1.0', 'http://www.example.com/disallowed'),
-      bot.isAllowed('googlebot', 'http://www.example.com/')
-    )
-      .spread(function (allowed, disallowed, googlebot) {
-        assert.ok(allowed);
-        assert.ok(disallowed);
-        assert.ok(googlebot);
-        scope.done();
-        done();
-      })
-      .catch(done);
-
-  });
-  
-  it('should disallow all when error', function (done) {
+  it('should fail when error', function (done) {
     var scope = nock('http://www.example.com')
       .get('/robots.txt')
       .replyWithFile(500, __dirname + '/fixtures/robots1.txt');
@@ -131,10 +108,10 @@ describe('parser', function () {
       bot.isAllowed('woobot/1.0', 'http://www.example.com/disallowed'),
       bot.isAllowed('googlebot', 'http://www.example.com/')
     )
-      .spread(function (allowed, disallowed, googlebot) {
-        assert.notOk(allowed);
-        assert.notOk(disallowed);
-        assert.notOk(googlebot);
+      .spread(function () {
+        done(new Error('Expected to fail'));
+      })
+      .catch(robots.StatusError, function () {
         scope.done();
         done();
       })
