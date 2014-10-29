@@ -20,8 +20,8 @@
     "extend": "^2.0.0",
     "level-ttl": "^2.1.0",
     "request": "^2.45.0",
-    "robots-txt-guard": "0.0.1",
-    "robots-txt-parse": "0.0.2",
+    "robots-txt-guard": "~0.0.2",
+    "robots-txt-parse": "~0.0.2",
     "through": "^2.3.6"
   }
 }
