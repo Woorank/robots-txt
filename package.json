@@ -1,8 +1,11 @@
 {
   "name": "robots-txt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Check user agents against robots.txt files",
-  "keywords": ["robots", "robots.txt"],
+  "keywords": [
+    "robots",
+    "robots.txt"
+  ],
   "main": "lib/robots.js",
   "scripts": {
     "test": "mocha -R spec ./test",
