@@ -1,4 +1,4 @@
-# robots-txt
+# robots-txt [![Build Status](https://travis-ci.org/Woorank/robots-txt.svg)](https://travis-ci.org/Woorank/robots-txt)
 
 Handles checking of robots.txt. handles concurrent requests and caching.
 
