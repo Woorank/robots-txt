@@ -27,5 +27,9 @@
     "robots-txt-guard": "~0.0.2",
     "robots-txt-parse": "~0.0.2",
     "through": "^2.3.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Woorank/robots-txt.git"
   }
 }
