@@ -26,7 +26,7 @@ describe('parser', function () {
       level.destroy('./test-db', done);
     });
   });
-  
+
   it('should fetch a robots file', function (done) {
     var scope = nock('http://www.example.com')
       .get('/robots.txt')
@@ -49,7 +49,7 @@ describe('parser', function () {
       .catch(done);
 
   });
-  
+
   it('should cache a robots file while fetching', function (done) {
     var scope = nock('http://www.example.com')
       .get('/robots.txt')
@@ -72,7 +72,7 @@ describe('parser', function () {
       .catch(done);
 
   });
-  
+
   it('should cache a robots file in db', function (done) {
     var scope = nock('http://www.example.com')
       .get('/robots.txt')
@@ -95,7 +95,7 @@ describe('parser', function () {
       .catch(done);
 
   });
-  
+
   it('should fail when error', function (done) {
     var scope = nock('http://www.example.com')
       .get('/robots.txt')
@@ -118,5 +118,25 @@ describe('parser', function () {
       .catch(done);
 
   });
-  
+
+  it('should be able to do custom user-agent', function () {
+    var scope = nock('http://www.example.com', {
+      reqheaders: {
+        'user-agent': 'Custom UA'
+      }
+    })
+      .get('/robots.txt')
+      .replyWithFile(200, __dirname + '/fixtures/robots1.txt');
+
+    var bot = robots({
+      request: {
+        headers: {
+          'user-agent': 'Custom UA'
+        }
+      }
+    });
+
+    return bot.isAllowed('woobot/1.0', 'http://www.example.com/allowed');
+  });
+
 });
